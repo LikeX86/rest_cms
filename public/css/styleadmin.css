@@ -1,0 +1,109 @@
+.banner{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 50px;
+    height:100%;
+    background:rgb(230, 230, 230);
+}
+.castle{
+    display: block;
+}
+.bannertext span{
+    color:rgb(0, 0, 0);
+    font-size:16px;
+}
+.bannertext h1{
+    margin-top:10px;
+    color:rgb(9, 7, 121);
+    font-size:37px;
+    font-weight: bold;
+
+}
+.bannertext p{
+    margin-top:-20px;
+    font-size:18px;
+    color:rgb(0, 0, 0);
+}
+.bannertext .btn{
+    margin:20px 110px;
+}
+.button{
+    border-radius: 35px;
+    box-shadow: rgb(187, 187, 187) .75px .75px 7px 1.5px;
+}
+.button{
+    padding:12px;
+    font-size:15px;
+    font-weight: bold;
+    color:white;
+    background-color: #dc3545;
+}
+.solicitar{
+    background-color: #dc3545;
+    color:rgb(255, 255, 255);
+    font-size:16px;
+    margin-top:20px;
+    padding:16px;
+    border-radius:50px;
+    border:none;
+    text-decoration: none;
+    box-shadow: rgb(177, 177, 177) .1px .1px 1px 1px;
+
+}
+
+
+/*INICIO DA PAGINA DE SERVIÇOS*/
+.titulos{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width:100%;
+    background-color:rgb(240, 240, 240);
+    padding-top:60px;
+    padding-left: 150px;
+    padding-bottom: 60px;
+}
+.titulos h2{
+    font-size: 35px;
+    color:rgb(68, 68, 68);
+    font-weight:bold;
+}
+.titulos span{
+    font-size: 17px;
+    color:rgb(70, 70, 70)
+}
+hr{
+    display: block;
+    border: 1px solid rgb(90, 70, 32);
+    height:2px;
+    width:100%;
+    text-align:left;
+    margin-left:0px;
+}
+.product-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 30px;
+}
+.product-textos{
+    height: 100%;
+    width:100%;
+    padding-left: 60px;
+}
+.product-textos h3{
+    font-size: 23px;
+}
+#product button{
+    padding:8px;
+    margin-top:3%;
+    font-size: 17px;
+    background-color:#dc3545;
+    border-color: #dc3545;
+    border-style: solid;
+    color:whitesmoke;
+    border-radius:30px; 
+    align-items:center;
+}
