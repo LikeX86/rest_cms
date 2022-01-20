@@ -1,11 +1,42 @@
+html, body {
+    overflow-x: hidden;
+}
+.nowrap {
+    white-space: nowrap;
+}
 .banner{
     display:flex;
     align-items: center;
     justify-content: space-around;
     padding-left: 50px;
-    height:100%;
+    height:450px;
     background:rgb(230, 230, 230);
 }
+.form-group textarea{
+    color:#0f0f0f;  
+    font-size:18px;
+    font-weight: bold;
+}
+textarea{
+    resize: none !important;
+    overflow: auto;
+}
+h4{
+    background-color: rgb(243, 243, 243);
+    color:#000000;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 3px;
+}
+.sessoes{
+    margin-top:10px;
+}
+.form-group .titulo{
+    margin-top:30px;
+}
+
+
 .castle{
     display: block;
 }
@@ -75,8 +106,7 @@
 }
 hr{
     display: block;
-    border: 1px solid rgb(90, 70, 32);
-    height:2px;
+    border: 1px solid rgb(27, 45, 83);
     width:100%;
     text-align:left;
     margin-left:0px;
@@ -107,3 +137,91 @@ hr{
     border-radius:30px; 
     align-items:center;
 }
+.titulo-sobre{
+    justify-content:center;
+    text-align:center;
+    height:400 px;
+    color:rgb(22, 22, 22);
+}
+.titulo-sobre h1{
+    padding-top:30px;
+    font-size:40px;
+    font-weight:bold;
+
+}
+.titulo-sobre p{
+    padding:auto 25px;
+    font-weight: bold;
+    font-size:20px;
+
+}
+.titulo-sobre h2{
+    width:450px;
+    margin-top:90px;
+    margin-left:10px;
+    padding: 10px;
+    font-weight: bold;
+    border: 1px solid #fff;
+
+}
+
+.sobre{
+    width:100%;
+    height:620px;
+    display: flex;
+}
+
+@media screen and (max-width: 1100px) {
+  
+    .preview{
+        display:none;
+    }
+    .form-group h3{
+        display:none;
+    }
+    hr{
+        display:none;
+    }
+    table {
+        width: 80%;
+        table-layout: fixed;
+    }
+    .thflex{
+        display:none;
+    }
+    .td-image embed{
+        width:350px;
+    }
+    html{
+        width: 100%;
+    }
+    
+    table{
+        width: 80%;
+    }
+
+    tr{width:100%;}
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .preview{
+        display:none;
+    }
+    .form-group h3{
+        display:none;
+    }
+   
+}
+

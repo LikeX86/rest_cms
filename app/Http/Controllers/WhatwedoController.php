@@ -17,7 +17,7 @@ class WhatwedoController extends Controller
     public function addServico(Request $request){
         $rules=[
             'titulo' => 'required|min:2',
-            'imagem'=>'required','mimes:jpg,png,gif,svg'
+            'imagem'=>'required','mimes:jpg,png,gif,svg',
         ];
 
         $validator = Validator::make($request->all(), $rules);

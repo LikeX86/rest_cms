@@ -1,4 +1,3 @@
-
 window.addEventListener('scroll',monitorarScroll);
 
 
@@ -72,6 +71,36 @@ function contato(){
     document.querySelector('.menu__mobile').style.display = 'none';
 }
 
+function trocar(){
+    var banner = document.querySelector('.banner');
+    if (banner.classList.contains('preto')){
+     banner.classList.remove("preto");
+     banner.classList.add("branco");
+     
+    }else{
+    banner.classList.remove("branco");
+    banner.classList.add('preto');
+
+
+    }
+    let time;
+    function comecar(){
+    time = setInterval(showTime,1000);
+
+    }
+    function parar(){
+        clearInterval(time);
+    }
+    function showTime(){
+        let d = new Date();
+        let h = d.getHours();
+        let m = d.getMinutes();
+        let s = d.getSeconds();
+        let txt = h+" "+m+" "+s;
+        document.querySelector('.demo').innerHTML = txt;
+
+    }
+}
 
 
   /* Fazer o painel e fazer um rolltobar limpar o float dos cards   */

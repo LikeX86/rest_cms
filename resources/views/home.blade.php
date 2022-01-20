@@ -35,6 +35,7 @@
                 <i class="fas fa-angle-double-up"></i>
             </div><!--botão de scroll-->
         <header>
+        </div>
         <nav>
         <div class="container">
             <div class="menu">
@@ -45,10 +46,11 @@
                     </a>
                     </div>
                     <ul class="menu_pc right hide-on-med-and-down">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Serviços</a></li>
-                        <li><a href="#">Portfólio</a></li>
-                        <li><a href="#">Contato</a></li>
+                        <li><a href="">Home</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#portfolio">Portfólio</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <!-- <li><a onclick="trocar()" href="#">Modo Black</a></li> -->
                     </ul>
                     <ul class="side-nav" id="menu-mobile">
                         <li><a href="#">Home</a></li>
@@ -65,14 +67,19 @@
         @foreach($site_banner as $banner)
         <div class="banner">
             <div class="bannertext">
-                <span> Criação de Sites na Bahia</span>
-                <h1>NINE-NINE</h1>  
-                <p>{{$banner->texto_banner}}</p>
-                <a href="#" class="waves-effect waves-purple btn">Orçamento</a>
+            <span> <?php echo wordwrap($banner->texto_subt,85,"<br />\n");?></span>
+                <h1> <?php echo wordwrap($banner->texto_titulo,85,"<br />\n");?></h1> 
+                <p> <?php echo wordwrap($banner->texto_banner,100,"<br />");?></p>
             </div>
-            <img src={{$banner->imagem}} class="castle" alt="...">        
+            @if(!$banner->url_show == null)
+            <embed autostart="true" style="padding:20px 20px; width:700px; height:500px" src={{asset($banner->url_show)}} class="castle" alt="...">        
+
+            @else 
+            <embed autostart="true" style="padding-top:20px; width:700px; height:500px" src={{asset($banner->imagem)}} class="castle" alt="...">        
         </div>
+        @endif
         @endforeach
+        
     </section>
 
     <!-- -->
@@ -87,12 +94,12 @@
             <div id="product">
 
                 <article class="product-card">
-                    <img height="100%" width="100%" src={{asset($servico->imagem)}} alt=""/>
+                    <embed style="padding-top:20px;"height="500" width="100%" src={{asset($servico->imagem)}} alt=""/>
                     <div class="product-textos">
 
                     <h3> {{$servico->titulo}} </h3>
                     @foreach($servico->itens()->get() as $item)
-                    <p> {{$item->descricao}} </p>
+                    <p><?php echo wordwrap($item->descricao,60,"<br>\n");?></p>
                     @endforeach
                     <button class="services-button">Ver planos</button>                    
                     </div>
@@ -141,8 +148,7 @@
                     target="_blank" title="Fale Conosco" class="solicitar">Solicitar</a>
             </div>    
         </section>
-        <section id="portfolio ">
-            
+        <section id="portfolio">
             <div class="titulos">
                 <span>Alguns dos nossos principais projetos</span>
                 <h2>Portfólio</h2>
@@ -150,117 +156,29 @@
             @foreach($site_portfolios as $portfolio)
             <div class="projetos">
                 <div class="projetos-card">
-                    <div class="projetos-img"> 
-                        <img src="{{asset($portfolio->imagem)}}" width="500px"/>
+                    <div class="projetos-img">
+                    @if(!$portfolio->url_show == null)
+                        <embed autostart="true" src="{{asset($portfolio->url_show)}}" height="280px;" width="500px">        
+
+                        @else 
+                        <embed autostart="true" src="{{asset($portfolio->imagem)}}" height="280px;" width="500 px">        
+                    </div>
+                    @endif 
                     </div>
                     <h4>{{$portfolio->titulo}}</h4>
-                    <p class="mb-4">{{$portfolio->descricao}}</p>
+                    <p class="mb-4"><?php echo wordwrap($portfolio->descricao,60,"<br />\n");?></p>
                     <a href="{{$portfolio->link}}" target="_blank" title="Visite" class="solicitar">Visitar</a>
                 </div>
             @endforeach
 
             </div>
         </section>
-        <div class="titulo-sobre">
-            <h1>Sobre-Nós</h1>
-            <p>Sou um parágrafo. Clique aqui para editar e adicionar o seu<br>próprio texto. É fácil! Basta clicar em “Editar Texto” ou clicar<br>
-                duas vezes sobre mim e você poderá adicionar o seu próprio<br>conteúdo e trocar fontes. Sou um ótimo espaço para você<br>
-                contar sua história.</p>
-            <h2>Nossa equipe de desenvolvimento</h2>
-            </div>        
-        <section class="sobre">
-            <div class="wrap">    
-                 <div class="card">
-                    <div class="card-liner">
-                <figure><img
-                src={{asset("imagens/logo.png")}}
-                        alt="" /> </figure>
-                <div class="card--social">
-                    <ul>
-                        <li class="instagram"><a target="_blank" href="https://www.instagram.com/_pedro_xzz/" class="insta"><i class="bi bi-instagram"></i></i></a></li>
-                        <li class="codepen"><a href="#"><i class="fa fa-codepen"></i></a></li>
-                    </ul>
-                </div>
-                <div class="card--title">
-                    <h3>Pedro Ramos</h3>
-                    <p>Web Developer</p>
-                </div>
-                <div class="card--desc">
-                    <hr />
-                    <p>“Todos deveriam aprender a programar um computador, porque ele ensina como pensar.”</p>
-                </div>
-                <div class="card--btn">
-                    <a href="0">
-                        <span class="moreinfo"><i class="fa fa-info-circle"></i> ALGO QUE QUE QUEIRA</span>
-                        <span class="fullprof">Não se esqueça de deixar o like<i class="fa fa-heart"></i> </span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="wrap">
-        
-        <div class="card">
-            <div class="card-liner">
-                <figure><img
-                src={{asset("imagens/logo.png")}}
-                        alt="" /> </figure>
-                <div class="card--social">
-                    <ul>
-                        <li class="instagram"><a target="_blank" href="https://www.instagram.com/_pedro_xzz/" class="insta"><i
-                            class="bi bi-instagram"></i></i></a></li>
-                        <li class="codepen"><a href="#"><i class="fa fa-codepen"></i></a></li>
-                    </ul>
-                </div>
-                <div class="card--title">
-                    <h3>Julia Assunção</h3>
-                    <p>Web Designer</p>
-                </div>
-                <div class="card--desc">
-                    <hr />
-                    <p>“Todos deveriam aprender a programar um computador, porque ele ensina como pensar.”</p>
-                </div>
-                <div class="card--btn">
-                    <a href="0">
-                        <span class="moreinfo"><i class="fa fa-info-circle"></i> ALGO QUE QUE QUEIRA</span>
-                        <span class="fullprof">Não se esqueça de deixar o like<i class="fa fa-heart"></i> </span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="wrap">
-        
-        <div class="card">
-            <div class="card-liner">
-                <figure><img
-                src={{asset("imagens/logo.png")}}
-                        alt="" /> </figure>
-                <div class="card--social">
-                    <ul>
-                        <li class="instagram"><a target="_blank" href="https://www.instagram.com/_pedro_xzz/" class="insta"><i
-                                    class="bi bi-instagram"></i></i></a></li>
-                        <li class="codepen"><a href="#"><i class="fa fa-codepen"></i></a></li>
-                    </ul>
-                </div>
-                <div class="card--title">
-                    <h3>Wendel Ferreira</h3>
-                    <p>Web Developer</p>
-                </div>
-                <div class="card--desc">
-                    <hr />
-                    <p>“Todos deveriam aprender a programar um computador, porque ele ensina como pensar.”</p>
-                </div>
-                <div class="card--btn">
-                    <a href="0">
-                        <span class="moreinfo"><i class="fa fa-info-circle"></i> ALGO QUE QUE QUEIRA</span>
-                        <span class="fullprof">Não se esqueça de deixar o like<i class="fa fa-heart"></i> </span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        </div>
-        </section>
+        @foreach($site_sobre as $sobre)
+        <div id="sobre" class="titulo-sobre">
+            <h1>{{$sobre->titulo_sobre}}</h1>
+            <div style="font-size:20px; padding:auto 25px; font-weight: bold;" ><?php echo wordwrap($sobre->texto_sobre);?></div>
+            </div>  
+            @endforeach       
         <section id="contato">
             <div class="titulos">
                 <span>Está com alguma duvida ?</span>

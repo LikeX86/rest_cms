@@ -3,7 +3,9 @@
 @section('title', 'Painel - O que fazemos')
 
 @section('content_header')
-    <h1></h1>
+
+    <link href="{{asset('css/styleadmin.css')}}" rel="stylesheet">
+
 @stop
 
 @section('content')
@@ -31,34 +33,36 @@
                         </div>
                         <div class="form-group">
                             <label>Titulo</label>
-                            <input type="text" name="titulo" class="form-control">
+                            <textarea type="text" name="titulo" class="form-control" id="editor"> </textarea>
+                            
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-sm btn-info">Adicionar</button>
                         </div>
                     </form>
                     <hr>
+
                     <table class="table">
                       <thead>
                         <tr>
                           <th scope="col">Imagem</th>
                           <th scope="col">Titulo</th>
-                          <th scope="col">Açôes</th>
+                          <th class="thflex" scope="col">Açôes</th>
                         </tr>
                       </thead>
+                      
                       <tbody>
                         @foreach($site_servicos  as $servico)
                         <tr>
-                          <td>
-                            
-                            <img width="300" height="200" src="{{asset($servico->imagem)}}">
-                          </td>
-                          <td>{{$servico->titulo}}</td>
-                          <td>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModalCenter{{$servico->id}}">
-                                  Adicionar itens
-                                </button>
+                          <td class="td-image"><embed autostart="true" width="380" height="300" src="{{asset($servico->imagem)}}"></td>
+                          <td style="font-size:20px; font-weight:bold;">{{$servico->titulo}}</td>
+                          <td> </td>
+                          </table>
+
+                    <!-- Button trigger modal -->
+                   <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModalCenter{{$servico->id}}">Adicionar itens</button>
+
+
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModalCenter{{$servico->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -84,16 +88,14 @@
                                     </div>
                                   </div>
                                 </div>
-                                
                                 <form class="d-inline" method="post" action="{{route('delete-servico')}}" onsubmit="return confirm('Deseja realmente excluir o registro ?')">
                                     @method('delete')
                                     @csrf
                                     <input type="hidden" name="id" value="{{$servico->id}}">
                                     <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
                                 </form>
-                          </td>
-                          <hr>
-                          <table style="max-height: 50px; overflow-y: auto;">
+                                
+                          <table style="max-height: 50px; ">
                                 <thead>
                                     <tr>
                                         <th>Lista de itens</th>
@@ -102,16 +104,15 @@
                                 <tbody>
                                     @foreach($servico->itens()->get() as $item)
                                     <tr>
-                                        <td>{{$item->descricao}}</td>
+                                    <td><?php echo wordwrap($item->descricao,65,"<br />\n");?></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                           </table>
-                          <hr>
+                          <hr style="background-color:aqua;">
                         </tr>
                         @endforeach
                       </tbody>
-                    </table>
                 </div>
             </div>
         </div>

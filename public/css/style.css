@@ -52,6 +52,13 @@ html, body{
     margin:0 auto;
 }
 /* MENU DE NAVEGAÇÃO */
+.preto{
+    background-color: rgba(24, 23, 23, 0.89);
+}
+.branco{
+    background-color: rgb(158, 64, 64);
+    
+}
 nav{
     background-color:rgb(20, 28, 42) ;
     z-index: 99;
@@ -83,8 +90,8 @@ nav .menu .menu_pc{
     list-style: none;
     align-items: center;
 
-}
 
+}
 .menu .menu_pc li a{
     height:100%;
     padding: 0 13px;
@@ -138,7 +145,6 @@ nav .menu .menu_pc{
     justify-content: space-around;
     padding-left: 50px;
     height:100%;
-    background:rgb(230, 230, 230);
 }
 .castle{
     display: block;
@@ -580,21 +586,27 @@ hr{
 }
 
 #portfolio{
-    display:flex;
+    display: flex;
+    flex-direction: column;
 }
 .projetos{
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;    
-    background: linear-gradient(rgb(240, 240, 240), rgb(255, 255, 255));
+    flex-wrap: wrap;
 }
 .projetos-card{
-    display:flex;
+    display: flex;
     flex-direction: column;
-    justify-content:flex-start;
+    justify-content: flex-start;
     align-items: flex-start;
-    margin:0 50px;
+    margin:50px 30px;
+
+}
+.projetos-img img{
+    background-position: top;
+    background-size: cover;
+    border-radius: 5px;
 }
 .projetos-card h4{
    padding:7px; 

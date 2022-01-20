@@ -18,7 +18,8 @@ class PortfolioController extends Controller
             'titulo' => 'required|min:2',
             'descricao' => 'required|min:2',
             'link' => 'required|min:2',
-            'imagem'=>'required','mimes:jpg,png,gif,svg'
+            'url_show' => 'max:500',
+            'imagem'=>'required|mimes:jpg,png,gif,svg'
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -29,7 +30,6 @@ class PortfolioController extends Controller
 
          if($request->hasFile('imagem')){
             if($request->file('imagem')->isValid()){
-
                 $imagem = $request->file('imagem')->store('public');
                 $url = Storage::url($imagem);
 
@@ -37,6 +37,7 @@ class PortfolioController extends Controller
                 $portfolios->titulo = $request->input('titulo');
                 $portfolios->descricao = $request->input('descricao');
                 $portfolios->link = $request->input('link');
+                $portfolios->url_show = $request->input('url_show');
                 $portfolios->imagem = $url;
                 $portfolios->save();
                
@@ -44,6 +45,52 @@ class PortfolioController extends Controller
             }
         }
     }
+
+    public function editPortfolio(Request $request, $id){
+        $site_portfolios = SitePortfolio::find($id);
+
+        $rules=[
+            'titulo' => 'required|min:2',
+            'descricao' => 'required|min:2',
+            'link' => 'required|min:2',
+            'url_show' => 'max:500',
+            'imagem'=>'required','mimes:jpg,png,gif,svg'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if($validator->fails()){
+            return redirect()->route('portfolio')->withErrors($validator);
+        }
+
+        if($request->hasFile('imagem')){
+            if($request->file('imagem')->isValid()){
+                $imagem_atual = explode('/',$site_portfolios->imagem);
+                unlink(storage_path('app/public/'.$imagem_atual[2]));
+                
+                $imagem = $request->file('imagem')->store('public');
+                $url = Storage::url($imagem);
+
+                // $portfolios instancia do banco que vem do models/SitePortfolio
+                $site_portfolios->titulo = $request->input('titulo');
+                $site_portfolios->descricao = $request->input('descricao');
+                $site_portfolios->link = $request->input('link');
+                $site_portfolios->url_show = $request->input('url_show');
+                $site_portfolios->imagem = $url;
+                $site_portfolios->save();
+                return redirect()->route('portfolio');
+
+                
+            }
+        }  
+        $site_portfolios->titulo = $request->input('titulo');
+        $site_portfolios->descricao = $request->input('descricao');
+        $site_portfolios->link = $request->input('link');
+        $site_portfolios->url_show = $request->input('url_show');
+        $site_portfolios->save();
+        return redirect()->route('portfolio');
+    }
+
     public function deletePortfolio(Request $request){
         $id = intval($request->input('id'));
         $portfolio = SitePortfolio::find($id);

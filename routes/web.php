@@ -49,5 +49,10 @@ Route::prefix('painel')->group(function(){
     //portfolio
     Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
     Route::post('/portfolio/add',[PortfolioController::class, 'addPortfolio'])->name('cadastrar-portfolio');
-    Route::delete('/portfolio/delete', [PortfolioController::class, 'deletePortfolio'])->name('delete-portfolio');
+    Route::put('/site/editar-portfolio/{id}',[PortfolioController::class, 'editPortfolio'])->name('editar-portfolio');
+    Route::delete('/portfolio/portfolios/delete', [PortfolioController::class, 'deletePortfolio'])->name('delete-portfolio');
+    //sobre
+    Route::get('/sobre', [SobreController::class, 'index'])->name('sobre');
+    Route::put('/sobre/editar-sobre/{id}', [SobreController::class, 'editSobre'])->name('editar-sobre');
+
 });

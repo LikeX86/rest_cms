@@ -12,7 +12,7 @@ class SiteController extends Controller
     public function index(){
         $site_banner = SiteBanner::all();
 
-        return view('site',[
+        return view('site'  ,[
             'site_banner'=>$site_banner,
         ]);
     }
@@ -22,7 +22,10 @@ class SiteController extends Controller
         
 
         $rules=[
-            'texto-banner' => 'required|min:2',
+            'banner-subt'=>'min:2',
+            'banner-titulo'=>'required|min:2',
+            'texto-banner' => 'min:2',
+            'url_show' => 'max:500',
             'imagem'=>'mimes:jpg,png,gif,svg'
         ];
 
@@ -39,15 +42,20 @@ class SiteController extends Controller
                 
                 $imagem = $request->file('imagem')->store('public');
                 $url = Storage::url($imagem);
+                $site_banner->texto_subt = $request->input('banner-subt');
+                $site_banner->texto_titulo = $request->input('banner-titulo');
                 $site_banner->texto_banner = $request->input('texto-banner');
+                $site_banner->url_show = $request->input('url_show');
                 $site_banner->imagem = $url;
                 $site_banner->save();
                 return redirect()->route('site');
                 
             }
         }
-        
+        $site_banner->texto_subt = $request->input('banner-subt');
+        $site_banner->texto_titulo = $request->input('banner-titulo');
         $site_banner->texto_banner = $request->input('texto-banner');
+        $site_banner->url_show = $request->input('url_show');
         $site_banner->save();
         return redirect()->route('site');
        
