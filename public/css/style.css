@@ -4,6 +4,17 @@
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+/* Configurações globais */
+
+textarea {
+    width: 200px; 
+    height: 150px;
+    resize: none;
+}
+/* */
+
+
 body {
     font-family: "Montserrat" sans-serif;
     color: #505050;

@@ -135,7 +135,6 @@ return [
     */
 
     'providers' => [
-
         /*
          * Laravel Framework Service Providers...
          */
@@ -161,7 +160,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        
         /*
          * Package Service Providers...
          */
@@ -174,7 +173,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        Ipunkt\LaravelAnalytics\AnalyticsServiceProvider::class,
+        
     ],
 
     /*
@@ -189,7 +189,7 @@ return [
     */
 
     'aliases' => [
-
+        'Analytics' => Ipunkt\LaravelAnalytics\AnalyticsFacade::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
@@ -230,5 +230,4 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-
 ];

@@ -24,6 +24,7 @@
   
 
 <body>
+   
             <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
             <script>
@@ -164,7 +165,7 @@
                         <embed autostart="true" src="{{asset($portfolio->imagem)}}" height="280px;" width="500 px">        
                     </div>
                     @endif 
-                    </div>
+                    
                     <h4>{{$portfolio->titulo}}</h4>
                     <p class="mb-4"><?php echo wordwrap($portfolio->descricao,60,"<br />\n");?></p>
                     <a href="{{$portfolio->link}}" target="_blank" title="Visite" class="solicitar">Visitar</a>
@@ -173,6 +174,7 @@
 
             </div>
         </section>
+
         @foreach($site_sobre as $sobre)
         <div id="sobre" class="titulo-sobre">
             <h1>{{$sobre->titulo_sobre}}</h1>
@@ -196,7 +198,7 @@
                         <input type="email" class="form-control" name="email" placeholder="Email" minlength="8" maxlength="120" required>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="mensagem" placeholder="Mensagem" minlength="10" maxlength="255" autocomplete="off" required></textarea>
+                        <textarea type="text" class="form-control" name="mensagem" placeholder="Mensagem" minlength="10" maxlength="255" autocomplete="off" required rows="4" cols="50"></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" class="solicitas" name="send"  value="Enviar">

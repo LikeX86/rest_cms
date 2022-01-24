@@ -61,7 +61,7 @@
 
                     <!-- Button trigger modal -->
                    <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModalCenter{{$servico->id}}">Adicionar itens</button>
-
+  
 
 
                                 <!-- Modal -->

@@ -236,22 +236,22 @@ return [
         [
             'text'        => 'Site',
             'url'         => 'painel/site',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-book',
         ],
         [
             'text'        => 'O que fazemos',
             'url'         => 'painel/whatwedo',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-pencil-alt',
         ],
         [
             'text'        => 'Portfolio',
             'url'         => 'painel/portfolio',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-globe',
         ],
         [
             'text'        => 'Sobre',
             'url'         => 'painel/sobre',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-circle-notch',
         ],
         ['header' => 'account_settings'],
         [
