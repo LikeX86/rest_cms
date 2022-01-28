@@ -9,6 +9,8 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\SobreController;
 use App\Http\Controllers\WhatwedoController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\DadosController;
+
 
 
 
@@ -34,6 +36,8 @@ Route::prefix('painel')->group(function(){
     Route::post('/register', [RegisterController::class, 'register'])->name('register-action');
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
     Route::get('/sobre', [SobreController::class, 'index'])->name('painel-sobre');
+    Route::get('/graficos', [DadosController::class, 'index'])->name('Graficos');
+
 
     
 

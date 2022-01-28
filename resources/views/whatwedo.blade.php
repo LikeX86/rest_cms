@@ -18,7 +18,7 @@
                 </ul>
             </div>
         @endif
-    <div class="row">
+        <div class="row">
         <div class="col">
             <div class="card">
                 <div class="card-header">
@@ -27,41 +27,75 @@
                 <div class="card-body">
                     <form method="post" action="{{route('cadastrar-servico')}}" enctype="multipart/form-data">
                         @csrf
-                        <div class="form-group">
-                            <label>Imagem</label>
-                            <input type="file" name="imagem">
+                        
+           <section class="content">
+              <div class="container-fluid">
+                <div class="row">
+                  <!-- left column -->
+                  <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">Tipos de template</h3>
+                      </div>
+                      <!-- /.card-header -->
+                      <!-- form start -->
+                      <form>
+                        <div class="card-body">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Titulo</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Colocar titulo">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputFile">Adicionar imagem</label>
+                            <div class="input-group">
+                              <div class="custom-file">
+                                <input type="file" name="imagem" class="custom-file-input" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Escolher arquivo - jpg,png,gif</label>
+                              </div>
+                              <div class="input-group-append">
+                                <span class="input-group-text">Upload</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                          </div>
                         </div>
-                        <div class="form-group">
-                            <label>Titulo</label>
-                            <textarea type="text" name="titulo" class="form-control" id="editor"> </textarea>
-                            
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-sm btn-info">Adicionar</button>
-                        </div>
-                    </form>
-                    <hr>
+                        <!-- /.card-body -->
 
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Imagem</th>
-                          <th scope="col">Titulo</th>
-                          <th class="thflex" scope="col">Açôes</th>
-                        </tr>
-                      </thead>
-                      
-                      <tbody>
-                        @foreach($site_servicos  as $servico)
-                        <tr>
-                          <td class="td-image"><embed autostart="true" width="380" height="300" src="{{asset($servico->imagem)}}"></td>
-                          <td style="font-size:20px; font-weight:bold;">{{$servico->titulo}}</td>
-                          <td> </td>
-                          </table>
+                        <div class="card-footer">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /.card -->
+                @foreach($site_servicos  as $servico) 
+                    <div class="card mb-3">
+                    <img class="card-img-top" autostart="true" width="380" height="300" src="{{asset($servico->imagem)}}" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">{{$servico->titulo}}</h5>
+                      </div>
 
-                    <!-- Button trigger modal -->
-                   <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModalCenter{{$servico->id}}">Adicionar itens</button>
-  
+                    <div>
+                        @foreach($servico->itens()->get() as $item)
+                          <p><?php echo wordwrap($item->descricao,60,"<br>\n");?></p>
+                        @endforeach
+                    </div>  
+
+                     
+                  </div>           
+                         
+                </div>
+                
+                @endforeach
+                        <form class="d-inline" method="post" action="{{route('delete-servico')}}" onsubmit="return confirm('Deseja realmente excluir o registro ?')">
+                                    @method('delete')
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$servico->id}}">
+                                    <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                         </form>
 
 
                                 <!-- Modal -->
@@ -87,32 +121,7 @@
                                       </form>
                                     </div>
                                   </div>
-                                </div>
-                                <form class="d-inline" method="post" action="{{route('delete-servico')}}" onsubmit="return confirm('Deseja realmente excluir o registro ?')">
-                                    @method('delete')
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{$servico->id}}">
-                                    <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
-                                </form>
-                                
-                          <table style="max-height: 50px; ">
-                                <thead>
-                                    <tr>
-                                        <th>Lista de itens</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($servico->itens()->get() as $item)
-                                    <tr>
-                                    <td><?php echo wordwrap($item->descricao,65,"<br />\n");?></td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                          </table>
-                          <hr style="background-color:aqua;">
-                        </tr>
-                        @endforeach
-                      </tbody>
+                                </div>                     
                 </div>
             </div>
         </div>

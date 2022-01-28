@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Validator;
 
 class SobreController extends Controller
 {
+    public function __construct(){
+        return $this->middleware('auth');
+    }
     public function index(){
         $site_sobre = SiteSobre::all();
 

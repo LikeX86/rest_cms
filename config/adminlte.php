@@ -227,42 +227,92 @@ return [
     'menu' => [
         // Sidebar items:
        
-        ['header' => 'Administração'],
+        ['header' => 'Administração',
+        'classes'=> 'text-md font-weight-bold'],
+        
         [
             'text'        => 'Home',
-            'url'         => 'painel/admin',
-            'icon'        => 'far fa-fw fa-file',
+            'url'         => '/painel/admin',
+            'icon'        => 'text-lg far fa-fw fa-file',
+            'label'       => 4,
+            'label_color' => 'success',
         ],
         [
-            'text'        => 'Site',
-            'url'         => 'painel/site',
-            'icon'        => 'fas fa-book',
+            'text'    => 'Menu',
+            'icon'    => 'fas fa-fw fa-share',
+            'classes'  => 'text-md',
+            'submenu' => [
+                [
+                    'text'        => 'Site',
+                    'url'         => 'painel/site',
+                    'icon'        => 'fas fa-book',
+                    'icon_color' => 'info',
+
+                ],
+                [
+                    'text'        => 'O que fazemos',
+                    'url'         => 'painel/whatwedo',
+                    'icon'        => 'fas fa-pencil-alt',
+                ],
+                [
+                    'text'        => 'Portfolio',
+                    'url'         => 'painel/portfolio',
+                    'icon'        => 'fas fa-globe',
+                    'icon_color' => 'primary',
+
+                ],
+                [
+                    'text'        => 'Sobre',
+                    'url'         => 'painel/sobre',
+                    'icon'        => 'fas fa-circle-notch',
+                    'icon_color' => 'success',
+
+                ],
+            ],
         ],
+
+        ['header' => 'Dados [API]',
+        'classes'=> 'text-md font-weight-bold ',
+        
+    ],
+    [
+        'text'       => 'Acessos',
+        'url'        => 'dados/acessos',
+        'icon'       => 'fas fa-fw fa-user',
+        'icon_color' => 'primary',
+    ],
         [
-            'text'        => 'O que fazemos',
-            'url'         => 'painel/whatwedo',
-            'icon'        => 'fas fa-pencil-alt',
+            'text'    => 'Graficos',
+            'icon'    => 'fas fa-chart-pie',
+            'icon_color' => 'secondary',
+            'classes'  => 'text-md',
+            'submenu' => [
+                [
+                    'text'        => 'Detalhes',
+                    'url'         => 'painel/graficos',
+                    'icon'        => 'far fa-circle',
+                    'icon_color'  => 'info',
+
+                ],
+            ],
         ],
+
+    
+        ['header' => 'Configurações da Conta',
+        'classes'=> 'text-md font-weight-bold'],
+        
         [
-            'text'        => 'Portfolio',
-            'url'         => 'painel/portfolio',
-            'icon'        => 'fas fa-globe',
-        ],
-        [
-            'text'        => 'Sobre',
-            'url'         => 'painel/sobre',
-            'icon'        => 'fas fa-circle-notch',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'painel/perfil',
-            'icon' => 'fas fa-fw fa-user',
+            'text'       => 'profile',
+            'url'        => 'user/profile',
+            'icon'       => 'fas fa-fw fa-user',
+            'icon_color' => 'primary',
         ],
         [
             'text' => 'change_password',
             'url'  => 'painel/password',
             'icon' => 'fas fa-fw fa-lock',
+            'icon_color' => 'info',
+
         ],
         
     ],

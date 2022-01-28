@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Storage;
 
 class WhatwedoController extends Controller
 {
+    public function __construct(){
+        return $this->middleware('auth');
+    }
     public function index(){
         $site_servicos = SiteServico::all();
         return view('whatwedo',['site_servicos' => $site_servicos]);

@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Storage;
 
 class SiteController extends Controller
 {
+    public function __construct(){
+        return $this->middleware('auth');
+    }
     public function index(){
         $site_banner = SiteBanner::all();
 

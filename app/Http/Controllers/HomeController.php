@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\SiteBanner;
 use App\Models\SiteServico;
 use App\Models\SitePortfolio;
@@ -19,6 +17,7 @@ class HomeController extends Controller
         $site_sobre = SiteSobre::all();
 
         return view('home',[
+         'graficos',
          'site_banner'=>$site_banner,
          'site_servicos' => $site_servicos,
          'site_portfolios'=> $site_portfolios,

@@ -4,6 +4,9 @@ html, body {
 .nowrap {
     white-space: nowrap;
 }
+header{
+    font-size:30px;
+}
 .banner{
     display:flex;
     align-items: center;
@@ -171,6 +174,20 @@ hr{
     display: flex;
 }
 
+/* O que fazemos card preview */
+.card-title h5{
+    background-color:rgb(221, 221, 221);
+    font-size:23px; 
+    font-weight:bold; 
+    width:200px;
+    text-align: center;
+    border: 2px solid rgb(193, 193, 193);
+    border-radius: 5px;
+}
+
+/* */
+/**/
+
 @media screen and (max-width: 1100px) {
   
     .preview{
@@ -190,7 +207,7 @@ hr{
         display:none;
     }
     .td-image embed{
-        width:350px;
+        width:310px;
     }
     html{
         width: 100%;

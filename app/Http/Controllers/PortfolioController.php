@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
+    public function __construct(){
+        return $this->middleware('auth');
+    }
     public function index(){
         $site_portfolios = SitePortfolio::all();
         return view('portfolio',['site_portfolios' => $site_portfolios]);

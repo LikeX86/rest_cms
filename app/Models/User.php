@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     /**
      * The attributes that are mass assignable.
@@ -30,6 +30,12 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
+
     protected $hidden = [
         'password',
         'remember_token',
