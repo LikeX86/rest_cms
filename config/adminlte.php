@@ -303,7 +303,7 @@ return [
         
         [
             'text'       => 'profile',
-            'url'        => 'user/profile',
+            'url'        => 'painel/perfil',
             'icon'       => 'fas fa-fw fa-user',
             'icon_color' => 'primary',
         ],
