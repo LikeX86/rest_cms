@@ -194,7 +194,7 @@ return [
     'register_url' => 'painel/register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => 'painel/perfil',
 
     /*
     |--------------------------------------------------------------------------
@@ -297,7 +297,32 @@ return [
             ],
         ],
 
-    
+        ['header' => 'Gerenciamento de posts',
+        'classes'=> 'text-md font-weight-bold'],
+        
+        [
+            'text'       => 'Posts',
+            'url'        => 'painel/posts',
+            'icon'       => 'fas fa-fw fa-user',
+            'icon_color' => 'primary',
+        ],
+        [
+            'text'       => 'Config',
+            'url'        => 'painel/config',
+            'icon'       => 'fas fa-users',
+            'icon_color' => 'primary',
+        ],
+
+        ['header' => 'Gerenciamento de Usuarios',
+        'classes'=> 'text-md font-weight-bold'],
+        
+        [
+            'text'       => 'Usuarios',
+            'url'        => 'painel/usuariosdb',
+            'icon'       => 'fas fa-users',
+            'icon_color' => 'secondary',
+        ],
+
         ['header' => 'Configurações da Conta',
         'classes'=> 'text-md font-weight-bold'],
         
