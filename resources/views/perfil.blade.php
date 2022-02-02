@@ -71,27 +71,30 @@ color:#69707a;
     <nav class="nav nav-borders">
         <a class="nav-link active ms-0" href="https://www.bootdey.com/snippets/view/bs5-edit-profile-account-details" target="__blank">Profile</a>
     </nav>
+    @foreach($users as $admin)
+                <form  method="post" action="{{route('editar-perfil', $admin->id)}}" enctype="multipart/form-data">
+                    @method('put')
+                    @csrf
     <div class="row">
         <div class="col-xl-4">
             <!-- Profile picture card-->
-            @foreach($users as $admin)
             <div class="card mb-4 mb-xl-0">
                 <div class="card-header">Foto de perfil</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
+
                     <img class="img-account-profile rounded-circle mb-2" src="{{asset($admin->imagem)}}" alt="">
                     <!-- Profile picture help block-->
-
                     <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                     <!-- Profile picture upload button-->
                     <div class="custom-file">
                                 <input type="file" name="imagem" class="custom-file-input" id="exampleInputFile">
                                 <label class="custom-file-label" for="exampleInputFile">Escolher imagem</label>
                               </div>
+                              
                 </div>
             </div>
         </div>
-        @endforeach
 
         <div class="col-xl-8">
             <!-- Account details card-->
@@ -99,50 +102,36 @@ color:#69707a;
                 <div class="card-header">Account Details</div>
                 <div class="card-body">
                     <form>
-                        <!-- Form Group (username)-->
-                        <div class="mb-3">
-                            <label class="small mb-1" for="inputUsername">Username (how your name will appear to other users on the site)</label>
-                            <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="username">
-                        </div>
                         <!-- Form Row-->
-                        <div class="row gx-3 mb-3">
+                        <div class="row  mb-3">
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputFirstName">First name</label>
-                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="{{$admin->name}}">
+                                <input class="form-control" id="inputFirstName" type="text" name="name" placeholder="Enter your first name" value="{{$admin->name}}">
                             </div>
                         </div>
-                        <!-- Form Row        -->
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (location)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputLocation">Location</label>
-                                <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" value="{{$admin->email}}">
-                            </div>
-                        </div>
+                
                         <!-- Form Group (email address)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                            <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="{{$admin->email}}">
+                            <input class="form-control" type="email" name="email" placeholder="Enter your email address" value="{{$admin->email}}">
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
                         <div class="col-md-6">
-                                <label class="small mb-1" for="inputPhone">{{$admin->last_access_date}}</label>
-                              
-                            </div>
-                            <!-- Form Group (phone number)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputPhone">Phone number</label>
-                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567">
+                                <label class="small mb-1">{{$admin->last_access_date}}</label>
                             </div>
                         </div>
                         <!-- Save changes button-->
                         <button class="btn btn-primary" type="submit">Save changes</button>
+
                     </form>
+                  @endforeach
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @stop

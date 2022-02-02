@@ -14,6 +14,8 @@ class AdminController extends Controller
     public function index(){
         return view('admin');
     }
+
+  
         // Show all users
        public function users(){
             $data= User::orderBydesc("id","name")->get();

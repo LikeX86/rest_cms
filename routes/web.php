@@ -27,6 +27,7 @@ use App\Http\Controllers\AdminProfileController;
 |
 */
 
+
 Route::get('/',[HomeController::class, 'index']);
 
 
@@ -62,7 +63,7 @@ Route::prefix('painel')->group(function(){
     Route::put('/sobre/editar-sobre/{id}', [SobreController::class, 'editSobre'])->name('editar-sobre');
     //Perfil
     Route::get('/perfil', [AdminProfileController::class, 'index'])->name('perfil');
-    Route::put('/perfil/editar-perfil/{id}', [AdminProfileController::class, 'editProfile'])->name('editar-perfil');
+    Route::put('/perfil/editar-perfil/{id}', [AdminProfileController::class, 'editprofile'])->name('editar-perfil');
     //usuarios
     Route::get('/usuariosdb',[AdminController::class,'users']);
     Route::get('/usuariosdb/delete/{id}',[AdminController::class,'delete_user']);
