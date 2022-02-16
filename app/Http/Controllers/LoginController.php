@@ -37,10 +37,13 @@ class LoginController extends Controller
        }
     }
 
-
     public function logout(){
-        Auth::logout();
-        return redirect()->route('login');
+      $this->renderable(function (\Exception $e) {
+        if ($e->getPrevious() instanceof \Illuminate\Session\TokenMismatchException) {
+            return redirect()->route('login');
+        };
+    });
+        
     }
 }
 

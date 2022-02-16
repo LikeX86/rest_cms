@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('paginas.admin')
 
 @section('title', 'Sobre - Sobre')
 
@@ -23,6 +23,7 @@
                 <div class="card-header">
                     <h4>Seção sobre</h4>
                 </div>
+                <div class="card-body">
                 @foreach($site_sobre as $sobre)         
                     <form method="post" action="{{route('editar-sobre', $sobre->id)}}" enctype="multipart/form-data">
                     @method('put')    
@@ -56,6 +57,7 @@
                         @endforeach
                       </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

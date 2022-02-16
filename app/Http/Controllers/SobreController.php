@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SiteSobre;
 use Illuminate\Support\Facades\Validator;
+use App\Models\ConfigGeral;
 
 class SobreController extends Controller
 {
@@ -13,10 +14,9 @@ class SobreController extends Controller
     }
     public function index(){
         $site_sobre = SiteSobre::all();
+        $config_geral = ConfigGeral::all();
 
-        return view('sobre',[
-            'site_sobre'=>$site_sobre,
-        ]);
+        return view('sobre',['site_sobre'=>$site_sobre],['config_geral'=>$config_geral]);
     }
     public function editSobre(Request $request, $id){
         $site_sobre = SiteSobre::find($id);

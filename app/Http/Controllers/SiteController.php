@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\SiteBanner;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+
+// ------------------
+use App\Models\SiteBanner;
+use App\Models\ConfigGeral;
 
 class SiteController extends Controller
 {
@@ -14,10 +17,9 @@ class SiteController extends Controller
     }
     public function index(){
         $site_banner = SiteBanner::all();
+        $config_geral = ConfigGeral::all();
 
-        return view('site'  ,[
-            'site_banner'=>$site_banner,
-        ]);
+        return view('site'  ,['site_banner'=>$site_banner],['config_geral'=>$config_geral]);
     }
 
     public function editBanner(Request $request, $id){

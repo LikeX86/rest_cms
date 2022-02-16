@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Models\ConfigGeral;
+
 
 
 class AdminController extends Controller
@@ -12,7 +13,8 @@ class AdminController extends Controller
     }
 
     public function index(){
-        return view('admin');
+        $config_geral = ConfigGeral::all();
+        return view('paginas.home',['config_geral'=>$config_geral]);
     }
 
   

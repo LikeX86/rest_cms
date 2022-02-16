@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\SiteServico;
-use App\Models\ItemServico;
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+
+//---------> MODELS <-----------
+use App\Models\SiteServico;
+use App\Models\ItemServico;
+use App\Models\ConfigGeral;
 
 class WhatwedoController extends Controller
 {
@@ -13,8 +17,9 @@ class WhatwedoController extends Controller
         return $this->middleware('auth');
     }
     public function index(){
+        $config_geral = ConfigGeral::all();
         $site_servicos = SiteServico::all();
-        return view('whatwedo',['site_servicos' => $site_servicos]);
+        return view('whatwedo',['site_servicos' => $site_servicos],['config_geral'=>$config_geral]);
     }
 
     public function addServico(Request $request){

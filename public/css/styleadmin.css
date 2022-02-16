@@ -11,7 +11,6 @@ header{
     display:flex;
     align-items: center;
     justify-content: space-around;
-    padding-left: 50px;
     height:450px;
     background:rgb(230, 230, 230);
 }
@@ -25,7 +24,6 @@ textarea{
     overflow: auto;
 }
 h4{
-    background-color: rgb(243, 243, 243);
     color:#000000;
     font-weight: bold;
     text-transform: uppercase;
@@ -219,7 +217,9 @@ hr{
 
     tr{width:100%;}
 
-  
+  .table{
+      display:none;
+  }
 }
 
 

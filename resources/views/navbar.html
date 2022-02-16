@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -7,12 +8,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="NBC5WxmMy9wEQr84WfEouXy7tgZuW51M4Zx8FoAC">
+    <meta name="csrf-token" content="DJ4Pwi4FbS5oApx7DLTwHe8G4ht7zoQ6ZF38itue">
 
     
     
     
-    <title> Dashboard</title>
+    <title>
+                Painel - Site            </title>
 
     
     
@@ -53,7 +55,9 @@
         <span class="sr-only">Trocar navegação</span>
     </a>
 </li>
-      
+        
+        
+        
             </ul>
 
     
@@ -68,7 +72,7 @@
     
     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 <span >
-            LikeX86
+            Pedro Ramos
         </span>
     </a>
 
@@ -93,7 +97,7 @@
                 Sair
             </a>
             <form id="logout-form" action="http://127.0.0.1:8000/painel/logout" method="POST" style="display: none;">
-                                <input type="hidden" name="_token" value="NBC5WxmMy9wEQr84WfEouXy7tgZuW51M4Zx8FoAC">
+                                <input type="hidden" name="_token" value="DJ4Pwi4FbS5oApx7DLTwHe8G4ht7zoQ6ZF38itue">
             </form>
         </li>
 
@@ -114,15 +118,15 @@
             class="brand-link "
     >
 
-    @foreach($User)
-    <img src="{{asset($User->imagem)}}"
+    
+    <img src="http://127.0.0.1:8000/vendor/adminlte/dist/img/AdminLTELogo.png"
+         alt="AdminLTE"
          class="brand-image img-circle elevation-3"
          style="opacity:.8">
-         @endforeach
 
     
     <span class="brand-text font-weight-light ">
-        <b>Agência</b> NINE-NINE
+        <b>Admin</b>LTE
     </span>
 
 </a>
@@ -142,10 +146,10 @@
 
 <li  class="nav-item">
 
-    <a class="nav-link active "
+    <a class="nav-link  "
        href="http://127.0.0.1:8000/painel/admin"        >
 
-        <i class="text-lg far fa-fw fa-file "></i>
+        <i class="text-lg fas fa-home "></i>
 
         <p>
             Home
@@ -245,38 +249,22 @@
 
 </li>
 
-<li  class="nav-header text-md font-weight-bold ">
+<li  class="nav-header text-md font-weight-bold">
 
-    Dados [API]
-
-</li>
-
-<li  class="nav-item">
-
-    <a class="nav-link  "
-       href="http://127.0.0.1:8000/dados/acessos"        >
-
-        <i class="fas fa-fw fa-user text-primary"></i>
-
-        <p>
-            Acessos
-
-                    </p>
-
-    </a>
+    Gerenciamento de posts
 
 </li>
 
 <li  class="nav-item has-treeview ">
 
     
-    <a class="nav-link text-md "
+    <a class="nav-link  "
        href="" >
 
-        <i class="fas fa-chart-pie text-secondary"></i>
+        <i class="fas fa-fw fa-user text-primary"></i>
 
         <p>
-            Graficos
+            Posts
             <i class="fas fa-angle-left right"></i>
 
                     </p>
@@ -288,12 +276,28 @@
         <li  class="nav-item">
 
     <a class="nav-link  "
-       href="http://127.0.0.1:8000/painel/graficos"        >
+       href="http://127.0.0.1:8000/painel/post"        >
 
-        <i class="far fa-circle text-info"></i>
+        <i class="fas fa-blog text-white"></i>
 
         <p>
-            Detalhes
+            Postagem
+
+                    </p>
+
+    </a>
+
+</li>
+
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="http://127.0.0.1:8000/painel/upload-arquivos"        >
+
+        <i class="fas fa-upload text-primary"></i>
+
+        <p>
+            Upload Arquivos
 
                     </p>
 
@@ -305,21 +309,15 @@
 
 </li>
 
-<li  class="nav-header text-md font-weight-bold">
-
-    Gerenciamento de posts
-
-</li>
-
 <li  class="nav-item">
 
     <a class="nav-link  "
-       href="http://127.0.0.1:8000/painel/posts"        >
+       href="http://127.0.0.1:8000/painel/config"        >
 
-        <i class="fas fa-fw fa-user text-primary"></i>
+        <i class="fas fa-users text-secondary"></i>
 
         <p>
-            Posts
+            Config
 
                     </p>
 
@@ -330,12 +328,28 @@
 <li  class="nav-item">
 
     <a class="nav-link  "
-       href="http://127.0.0.1:8000/painel/config"        >
+       href="http://127.0.0.1:8000/painel/categorias"        >
 
-        <i class="fas fa-users text-primary"></i>
+        <i class="fas fa-stream text-white"></i>
 
         <p>
-            Config
+            Categorias
+
+                    </p>
+
+    </a>
+
+</li>
+
+<li  class="nav-item">
+
+    <a class="nav-link  "
+       href="http://127.0.0.1:8000/painel/tags"        >
+
+        <i class="fas fa-tags text-warning"></i>
+
+        <p>
+            Tags
 
                     </p>
 
@@ -354,10 +368,26 @@
     <a class="nav-link  "
        href="http://127.0.0.1:8000/painel/usuariosdb"        >
 
-        <i class="fas fa-users text-secondary"></i>
+        <i class="fas fa-users text-primary"></i>
 
         <p>
             Usuarios
+
+                    </p>
+
+    </a>
+
+</li>
+
+<li  class="nav-item">
+
+    <a class="nav-link active "
+       href="http://127.0.0.1:8000/painel/criar-usuario"        >
+
+        <i class="fas fa-user-plus text-success"></i>
+
+        <p>
+            Criar-Usuario
 
                     </p>
 
@@ -374,7 +404,7 @@
 <li  class="nav-item">
 
     <a class="nav-link  "
-       href="http://127.0.0.1:8000/painel/perfil"        >
+       href="http://127.0.0.1:8000/painel/configuracoes"        >
 
         <i class="fas fa-fw fa-user text-primary"></i>
 
@@ -408,24 +438,10 @@
     </div>
 
 </aside>
-        
-        
-                    <div class="content-wrapper ">
-
-    
-            <div class="content-header">
-            <div class="container-fluid">
-                    <h1>Dashboard</h1>
-            </div>
-        </div>
-    
-    
-    <div class="content">
-        <div class="container-fluid">
-            <div class="card text-center">
-  <div class="card-header">
-  <iframe width="1000" height="1167" src="https://datastudio.google.com/embed/reporting/b1330539-d2f2-4a11-a350-43263318f50a/page/tWDGB" frameborder="0" style="border:0" allowfullscreen></iframe>
+  
+    </div>
   </div>
+</div>
         </div>
     </div>
 
@@ -438,7 +454,7 @@
     </div>
 
     
-        <script src="http://127.0.0.1:8000/vendor/jquery/jquery.min.js"></script>
+            <script src="http://127.0.0.1:8000/vendor/jquery/jquery.min.js"></script>
         <script src="http://127.0.0.1:8000/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="http://127.0.0.1:8000/vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
@@ -451,5 +467,3 @@
     
             
 </body>
-
-</html>

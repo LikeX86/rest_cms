@@ -1,6 +1,4 @@
-@extends('adminlte::page')
-
-@section('title', 'Painel - O que fazemos')
+@extends('paginas.admin')
 
 @section('content_header')
 

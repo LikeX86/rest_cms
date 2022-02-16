@@ -5,20 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href='https://fonts.googleapis.com/css?family=Hind:300,500,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--  -->
 
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"/> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!--  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/vendor/overlayScrollbars/css/OverlayScrollbars.min.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/vendor/adminlte/dist/css/adminlte.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <link rel="icon" href="{{asset('imagens/logo.png')}}" type="image/x-icon">
-    <title>NINE-NINE</title>
+    
+
+        <link href="{{asset('css/style.css')}}" rel="stylesheet">
+        <link rel="icon" href="{{asset('imagens/logo.png')}}" type="image/x-icon">
+
+
+        @foreach($config_geral as $config)
+        <title>{{$config->name}}<</title>
+        @endforeach
+
 </head>
  
   
@@ -35,33 +45,38 @@
         <div onclick="scrollTopo()" class="scrollButton">
                 <i class="fas fa-angle-double-up"></i>
             </div><!--botão de scroll-->
-        <header>
-        </div>
-        <nav>
-        <div class="container">
-            <div class="menu">
-                <div class="logo">
-                <a href="#">NINE-NINE</a>
-                        <a href="#" data-activates="menu-mobile" class="button-collapse">
-                        <i class="material-icons">menu</i>
-                    </a>
-                    </div>
-                    <ul class="menu_pc right hide-on-med-and-down">
-                        <li><a href="">Home</a></li>
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#portfolio">Portfólio</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                        <!-- <li><a onclick="trocar()" href="#">Modo Black</a></li> -->
-                    </ul>
-                    <ul class="side-nav" id="menu-mobile">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Serviços</a></li>
-                        <li><a href="#">Portfólio</a></li>
-                        <li><a href="#">Contato</a></li>
-                    </ul>
-                </div>
-                </div>
-            </nav>
+
+            <header>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-xl navbar-dark  fixed-top">
+  <div class="container">
+  @foreach($config_geral as $config)
+    <a class="navbar-brand" href="#"> 
+     <strong>{{$config->name}}</strong>
+    </a>
+    @endforeach
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#servicos">Serviços</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#portfolio">Portfólio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contato">Contato</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 </header>
 
 <section>
@@ -175,6 +190,74 @@
             </div>
         </section>
 
+
+
+<section class="content">
+<div class="row">
+@foreach($posts as $post)
+<div class="col-md-6">
+        <div class="card card-widget">  
+            <div class="card-header">  
+            <div class="user-block">
+            <img class="img-circle" src="{{Auth::user() !== null ? asset($user->avatar) : asset('avatar.png')}}" alt="User Image">
+            <span class="username">{{Auth::user()->name ?? 'none'}}</span>
+            <span class="description">{{$post->data}}</span>
+            </div>
+
+            <div class="card-tools">
+            <button type="button" class="btn btn-tool" title="Mark as read">
+            <i class="far fa-circle"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+            <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+            <i class="fas fa-times"></i></button>
+            </div>
+
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <h4>{{$post->titulo}}</h4>
+                    <span>{{$post->subtitulo}}</span>
+                </div>
+            <img width="500px" class="img-fluid pad" src="{{$post->imagem}}" alt="Photo">
+            <p>{{$post->descricao}}</p>
+            <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+            <span class="float-right text-muted">127 likes - 3 comments</span>
+            </div>
+
+            <div class="card-footer card-comments">
+            <div class="card-comment">
+            <div class="comment-text">
+            <span class="username">
+            Maria Gonzales
+            <span class="text-muted float-right">8:03 PM Today</span>
+            </span>
+            It is a long established fact that a reader will be distracted
+            by the readable content of a page when looking at its layout.
+            </div>
+            </div>
+
+            <div class="card-footer">
+            <form action="#" method="post">
+            <img class="img-fluid img-circle img-sm" src="../dist/img/user4-128x128.jpg" >
+
+            <div class="img-push">
+            <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
+            </div>
+        </form>
+
+        </div>
+</div>
+</div>
+</div>
+@endforeach
+</div>
+</div>
+
+</section>
+
         @foreach($site_sobre as $sobre)
         <div id="sobre" class="titulo-sobre">
             <h1>{{$sobre->titulo_sobre}}</h1>
@@ -209,10 +292,20 @@
 
         <footer>
             <div class="container">
-                <h2>NINE-NINE</h2>
-                <p>NINE-NINE &copy <span id="ano"></span> - Todos os direitos reservados.</p>
+            @foreach($config_geral as $config)
+                <h2>{{$config->name}}</h2>
+                <p>{{$config->name}} &copy <span id="ano"></span> - Todos os direitos reservados.</p>
+            @endforeach
             </div>
         </footer>
         <script src={{asset("js/script.js")}}></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
 </body>
 </html>

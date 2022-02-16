@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('paginas.admin')
 
 @section('title', 'Painel - Site')
 
@@ -7,7 +7,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link href="{{asset('css/styleadmin.css')}}" rel="stylesheet">
-
 @stop
 
 @section('content')
@@ -63,15 +62,15 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputFile">Alterar Imagem</label>
-                          <textarea rows="1" id="link" class="form-control" type="text" name="url_show">
-                          {{asset($banner->url_show)}}
-                          </textarea>
+                        <label for="exampleInputFile">Alterar Imagem. (Inserir link)</label>
+                          <input id="link" class="form-control" type="text" name="url_show">
+                          {{$banner->url_show}}
+                          </input>
                         </div>
 
                         <div class="form-group">
                         <label>Alterar Titulo</label>
-                          <textarea rows="2"  class="form-control" type="text" name="banner-titulo">
+                          <textarea width="300px" class="form-control" type="text" name="banner-titulo">
                           {{$banner->texto_titulo}}
                           </textarea>
                         </div>

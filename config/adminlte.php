@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Agência</b> NINE-NINE',
-    'logo_img' => '',
+    'logo' => '<b>Agência</b> NineNine',
+    'logo_img' => 'imagens/logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'nde',
 
     /*
     |--------------------------------------------------------------------------
@@ -233,7 +233,7 @@ return [
         [
             'text'        => 'Home',
             'url'         => '/painel/admin',
-            'icon'        => 'text-lg far fa-fw fa-file',
+            'icon'        => 'text-lg fas fa-home',
             'label'       => 4,
             'label_color' => 'success',
         ],
@@ -271,64 +271,78 @@ return [
             ],
         ],
 
-        ['header' => 'Dados [API]',
-        'classes'=> 'text-md font-weight-bold ',
-        
-    ],
-    [
-        'text'       => 'Acessos',
-        'url'        => 'dados/acessos',
-        'icon'       => 'fas fa-fw fa-user',
-        'icon_color' => 'primary',
-    ],
-        [
-            'text'    => 'Graficos',
-            'icon'    => 'fas fa-chart-pie',
-            'icon_color' => 'secondary',
-            'classes'  => 'text-md',
-            'submenu' => [
-                [
-                    'text'        => 'Detalhes',
-                    'url'         => 'painel/graficos',
-                    'icon'        => 'far fa-circle',
-                    'icon_color'  => 'info',
-
-                ],
-            ],
-        ],
-
         ['header' => 'Gerenciamento de posts',
-        'classes'=> 'text-md font-weight-bold'],
+        'classes'=> 'text-md font-weight-bold'
+    ],
         
         [
             'text'       => 'Posts',
             'url'        => 'painel/posts',
             'icon'       => 'fas fa-fw fa-user',
             'icon_color' => 'primary',
+            'submenu' => [
+                [
+                    'text'       => 'Postagem',
+                    'url'        => 'painel/post',
+                    'icon'       => 'fas fa-blog',
+                    'icon_color' => 'white',
+                ],
+                [
+                    'text'       => 'Upload Arquivos',
+                    'url'        => 'painel/upload-arquivos',
+                    'icon'       => 'fas fa-upload',
+                    'icon_color' => 'primary',
+                ],
+            ]
         ],
         [
             'text'       => 'Config',
             'url'        => 'painel/config',
             'icon'       => 'fas fa-users',
-            'icon_color' => 'primary',
+            'icon_color' => 'secondary',
+        ],
+        [
+            'text'       => 'Categorias',
+            'url'        => 'painel/categorias',
+            'icon'       => 'fas fa-stream',
+            'icon_color' => 'white',
+        ],
+        [
+            'text'       => 'Tags',
+            'url'        => 'painel/tags',
+            'icon'       => 'fas fa-tags',
+            'icon_color' => 'warning',
         ],
 
+
+        //---------- USUARIOS ------------
+        //---------- USUARIOS ------------
         ['header' => 'Gerenciamento de Usuarios',
-        'classes'=> 'text-md font-weight-bold'],
+        'classes'=> 'text-md font-weight-bold'
+    ],
         
         [
             'text'       => 'Usuarios',
             'url'        => 'painel/usuariosdb',
             'icon'       => 'fas fa-users',
-            'icon_color' => 'secondary',
+            'icon_color' => 'primary',
+        ],
+        [
+            'text'       => 'Criar-Usuario',
+            'url'        => 'painel/criar-usuario',
+            'icon'       => 'fas fa-user-plus',
+            'icon_color' => 'success',
         ],
 
+
+        // -------------- CONFIG --------------
+        // -------------- CONFIG --------------
         ['header' => 'Configurações da Conta',
         'classes'=> 'text-md font-weight-bold'],
         
         [
             'text'       => 'profile',
-            'url'        => 'painel/perfil',
+            'url'        => 'painel/configuracoes',
             'icon'       => 'fas fa-fw fa-user',
             'icon_color' => 'primary',
         ],

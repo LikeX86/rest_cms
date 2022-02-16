@@ -41,7 +41,19 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        'upl_avatar' => [
+            'driver' => 'local',
+            'root' => public_path().'/assets/avatar'
+        ],
 
+        'upl_arquivos' => [
+            'driver' => 'local',
+            'root' => public_path().'/assets/arquivos'
+        ],
+        'upl_posts' => [
+            'driver' => 'local',
+            'root' => public_path().'/assets/posts'
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

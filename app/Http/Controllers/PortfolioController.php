@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\SitePortfolio;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+
+// -----------------------
+use App\Models\SitePortfolio;
+use App\Models\ConfigGeral;
 
 class PortfolioController extends Controller
 {
@@ -13,7 +16,9 @@ class PortfolioController extends Controller
     }
     public function index(){
         $site_portfolios = SitePortfolio::all();
-        return view('portfolio',['site_portfolios' => $site_portfolios]);
+        $config_geral = ConfigGeral::all();
+
+        return view('portfolio',['site_portfolios' => $site_portfolios],['config_geral'=>$config_geral]);
     }
 
     public function addPortfolio(Request $request){
