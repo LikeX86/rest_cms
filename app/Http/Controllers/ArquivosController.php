@@ -33,6 +33,6 @@ class ArquivosController extends Controller
       $arquivo->caminho = 'assets/arquivos/'.$request->arquivo->storeAs('', str::slug($arquivo->nome).'.'.$arquivo->tipo, 'upl_arquivos');
       $arquivo->save();
 
-      return back()->with('mensagem', "Uplaod do arquivo '{$arquivo->nome}' realizado com sucesso.");
+      return back()->with('mensagem', "Upload do arquivo '{$arquivo->nome}' realizado com sucesso.");
     }
 }
